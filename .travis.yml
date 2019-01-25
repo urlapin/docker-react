@@ -1,0 +1,10 @@
+sudo: required
+services:
+  - docker
+
+before_install:
+  - docker build -t urlapin/docker-react -f Dockerfile.dev .
+
+script:
+  - docker run urlapin/docker-react npm run test -- --coverage
+
